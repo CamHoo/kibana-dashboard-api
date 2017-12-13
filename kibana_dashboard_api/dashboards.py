@@ -37,8 +37,8 @@ class Dashboard(KibanaApiModelBase):
         d.ui_state = cls.unserialize(source['uiStateJSON'])
         d.version = source['version']
         d.time_restore = source['timeRestore']
-        d.time_to = source['timeTo']
-        d.time_from = source['timeFrom']
+        d.time_to = source.get('timeTo')
+        d.time_from = source.get('timeFrom')
         d.refresh_interval_value = source['refreshInterval']['value']
         d.search_source = cls.unserialize(source['kibanaSavedObjectMeta']['searchSourceJSON'])
         return d
